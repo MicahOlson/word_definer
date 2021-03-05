@@ -10,4 +10,8 @@ class Word
   def self.all
     @@words.values
   end
+
+  def ==(word_to_compare)
+
+  end
 end
