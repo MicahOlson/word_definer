@@ -12,5 +12,6 @@ class Definition
   end
 
   def ==(compare_meaning)
+    self.meaning == compare_meaning.meaning
   end
 end
