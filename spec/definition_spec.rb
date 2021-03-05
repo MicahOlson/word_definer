@@ -82,4 +82,16 @@ describe '#Definition' do
       expect(Definition.all).to(eq([baby]))
     end
   end
+
+  describe('.find_by_word') do
+    it("finds definitions for a word") do
+      word2 = Word.new({name: "Baby"})
+      word2.save
+      meaning = Definition.new({meaning: "a round fruit often red in color", word_id: @word.id})
+      meaning.save()
+      meaning2 = Definition.new({meaning: "a very young or newly born child", word_id: word2.id})
+      meaning2.save()
+      expect(Definition.find_by_word(word2.id)).to(eq([meaning2]))
+    end
+  end
 end

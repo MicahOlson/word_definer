@@ -40,4 +40,7 @@ class Definition
   def delete
     @@definitions.delete(self.id)
   end
+
+  def self.find_by_word(word_id)
+  end
 end
