@@ -29,4 +29,7 @@ class Definition
   def self.find(id)
     @@definitions[id]
   end
+
+  def update(meaning)
+  end
 end

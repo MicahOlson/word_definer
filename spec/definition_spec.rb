@@ -5,10 +5,10 @@ require 'pry'
 
 describe '#Definition' do
   before(:each) do
-    Word.clear
+    # Word.clear
     Definition.clear
-    @word = Word.new({name: "Apple"})
-    @word.save
+    # @word = Word.new({name: "Apple"})
+    # @word.save
   end
 
   describe('#initialize') do
@@ -60,6 +60,15 @@ describe '#Definition' do
       baby = Definition.new({meaning: "a very young or newly born child"})
       baby.save
       expect(Definition.find(apple.id)).to(eq(apple))
+    end
+  end
+
+  describe('#update') do
+    it("updates a definition by id") do
+      apple = Definition.new({meaning: "a round fruit often red in color"})
+      apple.save
+      apple.update("a very young or newly born child")
+      expect(apple.meaning).to(eq("a very young or newly born child"))
     end
   end
 end
