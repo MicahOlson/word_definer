@@ -4,6 +4,13 @@ require 'word'
 require 'pry'
 
 describe '#Definition' do
+  before(:each) do
+    Word.clear
+    Definition.clear
+    @word = Word.new({name: "Apple"})
+    @word.save
+  end
+
   describe('#initialize') do
     it("initializes a Definition object with a hash of attributes") do
       apple = Definition.new({meaning: "a round fruit often red in color"})
