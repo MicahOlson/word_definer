@@ -10,4 +10,7 @@ class Definition
   def self.all
     @@definitions.values
   end
+
+  def ==(compare_meaning)
+  end
 end
