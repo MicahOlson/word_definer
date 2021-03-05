@@ -42,12 +42,6 @@ class Definition
   end
 
   def self.find_by_word(wrd_id)
-    definitions = []
-    @@definitions.values.each do |definition|
-      if definition.word_id == wrd_id
-        definitions.push(definition)
-      end
-    end
-    definitions
+    @@definitions.values.select { |definition| definition.word_id == wrd_id }
   end
 end
