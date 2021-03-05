@@ -1,10 +1,12 @@
 class Word
-  attr_reader :name
+  attr_reader :name, :id
 
   @@words = {}
+  @@total_rows = 0
 
   def initialize(attrs)
     @name = attrs[:name]
+    @id = attrs[:id] || @@total_rows += 1
   end
 
   def self.all
@@ -16,6 +18,6 @@ class Word
   end
 
   def save
-    
+    @@words[self.id] = Word.new({name: self.name, id: self.id})
   end
 end
