@@ -38,4 +38,7 @@ class Word
   def delete
     @@words.delete(self.id)
   end
+
+  def definitions
+  end
 end

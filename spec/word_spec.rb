@@ -1,6 +1,7 @@
 require('rspec')
 require('pry')
 require('word')
+require('definition')
 
 describe '#Word' do  
   before(:each) do
@@ -76,6 +77,18 @@ describe '#Word' do
       word2.save
       word.delete
       expect(Word.all).to(eq([word2]))
+    end
+  end
+  
+  describe('#definitions') do
+    it("returns a word's definitions") do
+      word = Word.new({name: "Apple"})
+      word.save
+      meaning = Definition.new({meaning: "a round fruit often red in color", word_id: word.id})
+      meaning.save
+      meaning2 = Definition.new({meaning: "the tree which bears apples (also apple tree)", word_id: word.id})
+      meaning2.save
+      expect(word.definitions).to(eq([meaning, meaning2]))
     end
   end
 end
