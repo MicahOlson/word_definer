@@ -5,8 +5,8 @@ require('word')
 describe '#Word' do
   describe('#initialize') do
     it("initializes a Word object with a hash of attributes") do
-      word = Word.new({word: "Apple"})
-      expect(word.word).to(eq("Apple"))
+      word = Word.new({name: "Apple"})
+      expect(word.name).to(eq("Apple"))
     end
   end
 
@@ -18,8 +18,8 @@ describe '#Word' do
 
   describe('#==') do
     it("is the same word if it has the same attributes as another word") do
-      word = Word.new({word: "Apple"})
-      word2 = Word.new({word: "Apple"})
+      word = Word.new({name: "Apple"})
+      word2 = Word.new({name: "Apple"})
       expect(word).to(eq(word2))
     end
   end

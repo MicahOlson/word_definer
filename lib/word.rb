@@ -1,17 +1,17 @@
 class Word
-  attr_reader :word
+  attr_reader :name
 
   @@words = {}
 
   def initialize(attrs)
-    @word = attrs[:word]
+    @name = attrs[:name]
   end
 
   def self.all
     @@words.values
   end
 
-  def ==(word_to_compare)
-    self.word == word_to_compare.word
+  def ==(compare_word)
+    self.name == compare_word.name
   end
 end
