@@ -71,4 +71,15 @@ describe '#Definition' do
       expect(apple.meaning).to(eq("a very young or newly born child"))
     end
   end
+
+  describe('#delete') do
+    it("deletes a definition by id") do
+      apple = Definition.new({meaning: "a round fruit often red in color"})
+      apple.save
+      baby = Definition.new({meaning: "a very young or newly born child"})
+      baby.save
+      apple.delete
+      expect(Definition.all).to(eq([baby]))
+    end
+  end
 end

@@ -33,4 +33,7 @@ class Definition
   def update(meaning)
     @meaning = meaning
   end
+
+  def delete
+  end
 end

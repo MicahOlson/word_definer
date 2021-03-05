@@ -52,9 +52,9 @@ describe '#Word' do
   describe('.find') do
     it("finds a word by id") do
       word = Word.new({name: "Apple"})
-      word.save()
+      word.save
       word2 = Word.new({name: "Baby"})
-      word2.save()
+      word2.save
       expect(Word.find(word.id)).to(eq(word))
     end
   end
@@ -62,7 +62,7 @@ describe '#Word' do
   describe('#update') do
     it("updates a word by id") do
       word = Word.new({name: "Apple"})
-      word.save()
+      word.save
       word.update("Baby")
       expect(word.name).to(eq("Baby"))
     end
@@ -71,10 +71,10 @@ describe '#Word' do
   describe('#delete') do
     it("deletes a word by id") do
       word = Word.new({name: "Apple"})
-      word.save()
+      word.save
       word2 = Word.new({name: "Baby"})
-      word2.save()
-      word.delete()
+      word2.save
+      word.delete
       expect(Word.all).to(eq([word2]))
     end
   end
