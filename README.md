@@ -16,6 +16,9 @@ Play with the application on Heroku here ###TO COME###
 * * *
 
 ## Technologies
+* HTML
+* CSS
+* Bootstrap 4.6.0
 * Ruby 2.6.5
 * Sinatra 2.1.0
 * Embedded Ruby (ERB)
