@@ -31,3 +31,13 @@ describe('update a word path', {:type => :feature}) do
     expect(page).to have_content('Orange')
   end
 end
+
+describe('delete a word path', {:type => :feature}) do
+  it('deletes a word and then goes to the words page') do
+    visit('/words')
+    click_on('Orange')
+    click_on('Edit name')
+    click_on('Delete word')
+    expect(page).to have_content('currently no words')
+  end
+end
