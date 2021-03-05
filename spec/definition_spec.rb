@@ -34,4 +34,15 @@ describe '#Definition' do
       expect(Definition.all).to(eq([apple, baby]))
     end
   end
+
+  describe('.clear') do
+    it("clears all definitions from 'database'") do
+      apple = Definition.new({meaning: "a round fruit often red in color"})
+      apple.save
+      baby = Definition.new({meaning: "a very young or newly born child"})
+      baby.save
+      Definition.clear
+      expect(Definition.all).to(eq([]))
+    end
+  end
 end

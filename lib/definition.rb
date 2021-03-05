@@ -20,4 +20,7 @@ class Definition
   def save
     @@definitions[self.id] = Definition.new({meaning: self.meaning, id: self.id})
   end
+
+  def self.clear
+  end
 end
