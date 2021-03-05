@@ -27,5 +27,6 @@ class Word
   end
 
   def self.find(id)
+    @@words[id]
   end
 end
