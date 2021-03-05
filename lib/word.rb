@@ -25,4 +25,7 @@ class Word
     @@words = {}
     @@total_rows = 0
   end
+
+  def self.find(id)
+  end
 end
