@@ -1,11 +1,13 @@
 class Definition
-  attr_reader :meaning, :id
+  attr_reader :id
+  attr_accessor :meaning, :word_id
 
   @@definitions = {}
   @@total_rows = 0
 
   def initialize(attrs)
     @meaning = attrs[:meaning]
+    @word_id = attrs[:word_id]
     @id = attrs[:id] || @@total_rows += 1
   end
 
@@ -14,24 +16,25 @@ class Definition
   end
 
   def ==(compare_meaning)
-    self.meaning == compare_meaning.meaning
+    (self.meaning == compare_meaning.meaning) && (self.word_id == compare_meaning.word_id)
   end
 
   def save
-    @@definitions[self.id] = Definition.new({meaning: self.meaning, id: self.id})
+    @@definitions[self.id] = Definition.new({meaning: self.meaning, word_id: self.word_id, id: self.id})
   end
 
   def self.clear
     @@definitions = {}
-    @@total_rows = 0
   end
 
   def self.find(id)
     @@definitions[id]
   end
 
-  def update(meaning)
-    @meaning = meaning
+  def update(meaning, word_id)
+    self.meaning = meaning
+    self.word_id = word_id
+    @definitions = Definition.new({meaning: self.meaning, word_id: self.word_id, id: self.id})
   end
 
   def delete

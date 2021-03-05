@@ -5,15 +5,15 @@ require 'pry'
 
 describe '#Definition' do
   before(:each) do
-    # Word.clear
+    Word.clear
     Definition.clear
-    # @word = Word.new({name: "Apple"})
-    # @word.save
+    @word = Word.new({name: "Apple"})
+    @word.save
   end
 
   describe('#initialize') do
     it("initializes a Definition object with a hash of attributes") do
-      apple = Definition.new({meaning: "a round fruit often red in color"})
+      apple = Definition.new({meaning: "a round fruit often red in color", word_id: @word.id})
       expect(apple.meaning).to(eq("a round fruit often red in color"))
     end
   end
@@ -26,17 +26,17 @@ describe '#Definition' do
 
   describe('#==') do
     it("is the same definition if it has the same attributes as another") do
-      apple = Definition.new({meaning: "a round fruit often red in color"})
-      apple2 = Definition.new({meaning: "a round fruit often red in color"})
+      apple = Definition.new({meaning: "a round fruit often red in color", word_id: @word.id})
+      apple2 = Definition.new({meaning: "a round fruit often red in color", word_id: @word.id})
       expect(apple).to(eq(apple2))
     end
   end
 
   describe('#save') do
     it("saves a definition into definitions 'database'") do
-      apple = Definition.new({meaning: "a round fruit often red in color"})
+      apple = Definition.new({meaning: "a round fruit often red in color", word_id: @word.id})
       apple.save
-      baby = Definition.new({meaning: "a very young or newly born child"})
+      baby = Definition.new({meaning: "a very young or newly born child", word_id: @word.id})
       baby.save
       expect(Definition.all).to(eq([apple, baby]))
     end
@@ -44,9 +44,9 @@ describe '#Definition' do
 
   describe('.clear') do
     it("clears all definitions from 'database'") do
-      apple = Definition.new({meaning: "a round fruit often red in color"})
+      apple = Definition.new({meaning: "a round fruit often red in color", word_id: @word.id})
       apple.save
-      baby = Definition.new({meaning: "a very young or newly born child"})
+      baby = Definition.new({meaning: "a very young or newly born child", word_id: @word.id})
       baby.save
       Definition.clear
       expect(Definition.all).to(eq([]))
@@ -55,9 +55,9 @@ describe '#Definition' do
 
   describe('.find') do
     it("finds a definition by id") do
-      apple = Definition.new({meaning: "a round fruit often red in color"})
+      apple = Definition.new({meaning: "a round fruit often red in color", word_id: @word.id})
       apple.save
-      baby = Definition.new({meaning: "a very young or newly born child"})
+      baby = Definition.new({meaning: "a very young or newly born child", word_id: @word.id})
       baby.save
       expect(Definition.find(apple.id)).to(eq(apple))
     end
@@ -65,18 +65,18 @@ describe '#Definition' do
 
   describe('#update') do
     it("updates a definition by id") do
-      apple = Definition.new({meaning: "a round fruit often red in color"})
+      apple = Definition.new({meaning: "a round fruit often red in color", word_id: @word.id})
       apple.save
-      apple.update("a very young or newly born child")
+      apple.update("a very young or newly born child", @word.id)
       expect(apple.meaning).to(eq("a very young or newly born child"))
     end
   end
 
   describe('#delete') do
     it("deletes a definition by id") do
-      apple = Definition.new({meaning: "a round fruit often red in color"})
+      apple = Definition.new({meaning: "a round fruit often red in color", word_id: @word.id})
       apple.save
-      baby = Definition.new({meaning: "a very young or newly born child"})
+      baby = Definition.new({meaning: "a very young or newly born child", word_id: @word.id})
       baby.save
       apple.delete
       expect(Definition.all).to(eq([baby]))
