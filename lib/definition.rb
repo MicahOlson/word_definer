@@ -34,7 +34,7 @@ class Definition
   def update(meaning, word_id)
     self.meaning = meaning
     self.word_id = word_id
-    @definitions = Definition.new({meaning: self.meaning, word_id: self.word_id, id: self.id})
+    @@definitions = Definition.new({meaning: self.meaning, word_id: self.word_id, id: self.id})
   end
 
   def delete
@@ -43,5 +43,8 @@ class Definition
 
   def self.find_by_word(wrd_id)
     @@definitions.values.select { |definition| definition.word_id == wrd_id }
+  end
+
+  def word
   end
 end
