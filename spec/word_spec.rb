@@ -9,4 +9,10 @@ describe '#Word' do
       expect(word.word).to(eq("Apple"))
     end
   end
+
+  describe('.all') do
+    it("returns an array of all saved word objects (empty at first)") do
+      expect(Word.all).to(eq([]))
+    end
+  end
 end
