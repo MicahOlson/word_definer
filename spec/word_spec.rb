@@ -30,9 +30,9 @@ describe '#Word' do
 
   describe('#save') do
     it("saves a word into words 'database'") do
-      word = Word.new({name: "Apple", id: nil})
+      word = Word.new({name: "Apple"})
       word.save
-      word2 = Word.new({name: "Baby", id: nil})
+      word2 = Word.new({name: "Baby"})
       word2.save
       expect(Word.all).to(eq([word, word2]))
     end
@@ -40,9 +40,9 @@ describe '#Word' do
 
   describe('.clear') do
     it("clears all words from 'database'") do
-      word = Word.new({name: "Apple", id: nil})
+      word = Word.new({name: "Apple"})
       word.save
-      word2 = Word.new({name: "Baby", id: nil})
+      word2 = Word.new({name: "Baby"})
       word2.save
       Word.clear
       expect(Word.all).to(eq([]))
@@ -51,9 +51,9 @@ describe '#Word' do
 
   describe('.find') do
     it("finds a word by id") do
-      word = Word.new({name: "Apple", id: nil})
+      word = Word.new({name: "Apple"})
       word.save()
-      word2 = Word.new({name: "Baby", id: nil})
+      word2 = Word.new({name: "Baby"})
       word2.save()
       expect(Word.find(word.id)).to(eq(word))
     end
@@ -61,7 +61,7 @@ describe '#Word' do
 
   describe('#update') do
     it("updates a word by id") do
-      word = Word.new({name: "Apple", id: nil})
+      word = Word.new({name: "Apple"})
       word.save()
       word.update("Baby")
       expect(word.name).to(eq("Baby"))
@@ -70,9 +70,9 @@ describe '#Word' do
 
   describe('#delete') do
     it("deletes a word by id") do
-      word = Word.new({name: "Apple", id: nil})
+      word = Word.new({name: "Apple"})
       word.save()
-      word2 = Word.new({name: "Baby", id: nil})
+      word2 = Word.new({name: "Baby"})
       word2.save()
       word.delete()
       expect(Word.all).to(eq([word2]))
