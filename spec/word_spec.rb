@@ -23,4 +23,14 @@ describe '#Word' do
       expect(word).to(eq(word2))
     end
   end
+
+  describe('#save') do
+    it("saves an word") do
+      word = Word.new({name: "Apple"})
+      word.save()
+      word2 = Word.new({name: "Baby"})
+      word2.save()
+      expect(Word.all).to(eq([word, word2]))
+    end
+  end
 end
