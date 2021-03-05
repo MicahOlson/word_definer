@@ -52,4 +52,14 @@ describe '#Definition' do
       expect(Definition.all).to(eq([]))
     end
   end
+
+  describe('.find') do
+    it("finds a definition by id") do
+      apple = Definition.new({meaning: "a round fruit often red in color"})
+      apple.save
+      baby = Definition.new({meaning: "a very young or newly born child"})
+      baby.save
+      expect(Definition.find(apple.id)).to(eq(apple))
+    end
+  end
 end
