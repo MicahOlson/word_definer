@@ -31,5 +31,6 @@ class Definition
   end
 
   def update(meaning)
+    @meaning = meaning
   end
 end
