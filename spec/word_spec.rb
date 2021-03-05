@@ -2,7 +2,11 @@ require('rspec')
 require('pry')
 require('word')
 
-describe '#Word' do
+describe '#Word' do  
+  before(:each) do
+    Word.clear
+  end
+
   describe('#initialize') do
     it("initializes a Word object with a hash of attributes") do
       word = Word.new({name: "Apple"})
@@ -27,9 +31,9 @@ describe '#Word' do
   describe('#save') do
     it("saves a word into words 'database'") do
       word = Word.new({name: "Apple", id: nil})
-      word.save()
+      word.save
       word2 = Word.new({name: "Baby", id: nil})
-      word2.save()
+      word2.save
       expect(Word.all).to(eq([word, word2]))
     end
   end
@@ -37,10 +41,10 @@ describe '#Word' do
   describe('.clear') do
     it("clears all words from 'database'") do
       word = Word.new({name: "Apple", id: nil})
-      word.save()
+      word.save
       word2 = Word.new({name: "Baby", id: nil})
-      word2.save()
-      Word.clear()
+      word2.save
+      Word.clear
       expect(Word.all).to(eq([]))
     end
   end
