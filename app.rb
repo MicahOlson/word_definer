@@ -67,7 +67,7 @@ patch('/words/:id/definitions/:definition_id') do
   @word = Word.find(params[:id].to_i())
   # binding.pry
   meaning = Definition.find(params[:definition_id].to_i())
-  meaning.update(params[:meaning], @word.id)
+  meaning.update(params[:definition], @word.id)
   erb(:word)
 end
 
