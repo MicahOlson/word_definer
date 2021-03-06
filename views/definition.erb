@@ -1,2 +1,19 @@
 <h2><%= @meaning.word.name %></h2>
 <h3><%= @meaning.meaning %></h3>
+
+<form action="/words/<%= @meaning.word.id %>/definitions/<%= @meaning.id %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+
+  <label for="name">Update definition</label>
+  <input id="name" name="name" type="text">
+
+  <button type="submit">Update definition</button>
+</form>
+
+<form action="/words/<%= @meaning.word.id %>/definitions/<%= @meaning.id %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+
+  <button type="submit">Delete definition</button>
+</form>
+
+<a href="/words/<%= @meaning.word.id %>">Back to <%= @meaning.word.name %></a>
