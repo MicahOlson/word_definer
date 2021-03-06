@@ -6,8 +6,7 @@ require 'pry'
 also_reload 'lib/**/*.rb'
 
 get('/') do
-  @words = Word.all
-  erb(:words)
+  redirect to('/words')
 end
 
 get('/words') do
@@ -23,8 +22,7 @@ post('/words') do
   name = params[:word_name]
   word = Word.new({name: name})
   word.save
-  @words = Word.all
-  erb(:words)
+  redirect to('/words')
 end
 
 get('/words/:id') do
@@ -40,15 +38,13 @@ end
 patch('/words/:id') do
   @word = Word.find(params[:id].to_i())
   @word.update(params[:name])
-  @words = Word.all
-  erb(:words)
+  redirect to('/words')
 end
 
 delete('/words/:id') do
   @word = Word.find(params[:id].to_i())
   @word.delete
-  @words = Word.all
-  erb(:words)
+  redirect to('/words')
 end
 
 get('/words/:id/definitions/:definition_id') do
