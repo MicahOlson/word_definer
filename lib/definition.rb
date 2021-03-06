@@ -34,7 +34,7 @@ class Definition
   def update(meaning, word_id)
     self.meaning = meaning
     self.word_id = word_id
-    @@definitions = Definition.new({meaning: self.meaning, word_id: self.word_id, id: self.id})
+    @@definitions[self.id] = Definition.new({meaning: self.meaning, word_id: self.word_id, id: self.id})
   end
 
   def delete

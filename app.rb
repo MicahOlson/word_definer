@@ -63,12 +63,13 @@ post('/words/:id/definitions') do
   erb(:word)
 end
 
-# patch('/words/:id/definitions/:definition_id') do
-#   @word = Word.find(params[:id].to_i())
-#   meaning = Definition.find(params[:definition_id].to_i())
-#   meaning.update(params[:meaning], @word.id)
-#   erb(:word)
-# end
+patch('/words/:id/definitions/:definition_id') do
+  @word = Word.find(params[:id].to_i())
+  # binding.pry
+  meaning = Definition.find(params[:definition_id].to_i())
+  meaning.update(params[:meaning], @word.id)
+  erb(:word)
+end
 
 delete('/words/:id/definitions/:definition_id') do
   meaning = Definition.find(params[:definition_id].to_i())
