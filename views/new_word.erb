@@ -1,8 +1,10 @@
-<h1>Add a new word</h1>
+<h5>Add a new word</h5>
 
 <form action="/words" method="post">
   <div class="form-group">
-    <input id="word_name" name="word_name" class="form-control" type="text" placeholder="enter a word here">
+    <input id="word_name" name="word_name" class="form-control" type="text" placeholder="type a new word here" required>
   </div>
-  <button type="submit" class="btn">Add!</button>
+  <button type="submit" class="btn btn-dark">Add!</button>
 </form>
+
+<p><small><a href="/words">Return to word list</a></small></p>

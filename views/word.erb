@@ -1,25 +1,25 @@
-<h3><%= @word.name %></h3>
+<h5>Definition of <i><%= @word.name %></i></h5>
 
-<h4>Definition(s)</h4>
+<div id="definitions">
+  <% if @word.definitions.any? %>
+    <ol>
+      <% @word.definitions.each do |definition| %>
+        <li><a href="/words/<%= @word.id %>/definitions/<%= definition.id %>"><%= definition.meaning %></a></li>
+      <% end %>
+    </ol>
+  <% else %>
+    <p>There are no definitions listed for this word yet.</p>
+  <% end %>
+</div>
 
-<% if @word.definitions.any? %>
-  <ul>
-    <% @word.definitions.each do |definition| %>
-      <li><a href="/words/<%= @word.id %>/definitions/<%= definition.id %>"><%= definition.meaning %></a></li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>There are no definitions listed for this word yet.</p>
-<% end %>
+<h6>Add a new definition:</h6>
 
-<h4>Add a definition:</h4>
-
-<form action="/words/<%= @word.id %>/definitions" method="post">
+<form id="" action="/words/<%= @word.id %>/definitions" method="post">
   <div class="form-group">
-    <input id="meaning" name="meaning" class="form-control" type="text" placeholder="add definition here">
+    <input id="meaning" name="meaning" class="form-control" type="text" placeholder="type a definition here" required>
   </div>
-  <button type="submit" class="btn">Add definition</button>
+  <button type="submit" class="btn btn-dark">Add definition</button>
+  <div><small>-or- <a href="/words/<%= @word.id %>/edit">Edit word name</a></small></div>
 </form>
 
-<p><a href="/words/<%= @word.id %>/edit">Edit name</a></p>
-<a href="/words">Return to word list</a>
+<p><small><a href="/words">Return to word list</a></small></p>
