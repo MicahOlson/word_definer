@@ -1,7 +1,7 @@
-require('rspec')
-require('pry')
-require('word')
-require('definition')
+require 'rspec'
+require 'pry'
+require 'word'
+require 'definition'
 
 describe '#Word' do  
   after(:each) do

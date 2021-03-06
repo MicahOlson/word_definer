@@ -1,9 +1,9 @@
-require('sinatra')
-require('sinatra/reloader')
-require('./lib/word')
-require('./lib/definition')
-require('pry')
-also_reload('lib/**/*.rb')
+require 'sinatra'
+require 'sinatra/reloader'
+require './lib/word'
+require './lib/definition'
+require 'pry'
+also_reload 'lib/**/*.rb'
 
 get('/') do
   @words = Word.all
@@ -22,7 +22,7 @@ end
 post('/words') do
   name = params[:word_name]
   word = Word.new({name: name})
-  word.save()
+  word.save
   @words = Word.all
   erb(:words)
 end
@@ -46,7 +46,7 @@ end
 
 delete('/words/:id') do
   @word = Word.find(params[:id].to_i())
-  @word.delete()
+  @word.delete
   @words = Word.all
   erb(:words)
 end
@@ -59,13 +59,12 @@ end
 post('/words/:id/definitions') do
   @word = Word.find(params[:id].to_i())
   meaning = Definition.new({meaning: params[:meaning], word_id: @word.id})
-  meaning.save()
+  meaning.save
   erb(:word)
 end
 
 patch('/words/:id/definitions/:definition_id') do
   @word = Word.find(params[:id].to_i())
-  # binding.pry
   meaning = Definition.find(params[:definition_id].to_i())
   meaning.update(params[:definition], @word.id)
   erb(:word)
