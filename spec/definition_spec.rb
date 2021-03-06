@@ -5,10 +5,13 @@ require 'pry'
 
 describe '#Definition' do
   before(:each) do
-    Word.clear
-    Definition.clear
     @word = Word.new({name: "Apple"})
     @word.save
+  end
+
+  after(:each) do
+    Word.clear
+    Definition.clear
   end
 
   describe('#initialize') do

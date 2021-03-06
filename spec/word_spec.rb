@@ -4,7 +4,7 @@ require('word')
 require('definition')
 
 describe '#Word' do  
-  before(:each) do
+  after(:each) do
     Word.clear
     Definition.clear
   end
