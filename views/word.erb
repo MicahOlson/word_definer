@@ -2,15 +2,15 @@
 
 <h4>Definition(s)</h4>
 
-<% if @word.definitions %>
-<ul>
-  <% @word.definitions.each do |definition| %>
-    <li><a href="/words/<%= @word.id %>/definitions/<%= definition.id %>"><%= definition.meaning %></a></li>
+<% if @word.definitions.any? %>
+  <ul>
+    <% @word.definitions.each do |definition| %>
+      <li><a href="/words/<%= @word.id %>/definitions/<%= definition.id %>"><%= definition.meaning %></a></li>
+    <% end %>
+  </ul>
+  <% else %>
+    <p>There are no definitions listed for this word yet.</p>
   <% end %>
-</ul>
-<% else %>
-  <p>There are no definitions listed for this word yet.</p>
-<% end %>
 
 <h4>Add a definition:</h4>
 

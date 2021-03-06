@@ -45,6 +45,16 @@ describe('update a definition path', {:type => :feature}) do
   end
 end
 
+describe('delete a definition path', {:type => :feature}) do
+  it("deletes a definition and then goes to a word's definitions page") do
+    visit('/words')
+    click_on('Dog')
+    click_on('a person regarded as unpleasant')
+    click_on('Delete definition')
+    expect(page).to have_content('no definitions listed')
+  end
+end
+
 describe('delete a word path', {:type => :feature}) do
   it('deletes a word and then goes to the words page') do
     visit('/words')
