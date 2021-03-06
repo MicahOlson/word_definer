@@ -1,5 +1,5 @@
-# Word Definer
-## _A vocabulary builder for kids_
+<img src="public/img/preview.png" alt="A preview of Word Definer">
+  
 ### by: Micah L. Olson
 ### created: 3/5/2021
 * * * 
@@ -7,18 +7,14 @@
 ## Description
 Geared towards children's education, this application will allow a user to enter a new word they've learned and its definition, see a full list of words and retrieve their definitions, and edit or delete words and definitions.
   
-Play with the application on Heroku here ###TO COME###  
-
-<!-- <div align="center">
-  <img src="public/img/preview.png" alt="A preview of Word Definer" width="70%">
-</div> -->
-  
+**Play with the application** on Heroku [here](https://frozen-chamber-40405.herokuapp.com/).  
 * * *
 
 ## Technologies
 * HTML
 * CSS
 * Bootstrap 4.6.0
+* Google Fonts API
 * Ruby 2.6.5
 * Sinatra 2.1.0
 * Embedded Ruby (ERB)
@@ -68,6 +64,9 @@ Play with the application on Heroku here ###TO COME###
 * To **see the *unit* and *integration* test suites**, use `cat` to view the contents of this project's specs files (or open them in a code editor; see below).
   ```bash
   $ cat spec/word_spec.rb
+  ```
+  ```bash
+  $ cat spec/definition_spec.rb
   ```
   ```bash
   $ cat spec/word_integration_spec.rb
