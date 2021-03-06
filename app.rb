@@ -55,3 +55,10 @@ get('/words/:id/definitions/:definition_id') do
   @meaning = Definition.find(params[:definition_id].to_i())
   erb(:definition)
 end
+
+post('/words/:id/definitions') do
+  @word = Word.find(params[:id].to_i())
+  meaning = Definition.new({meaning: params[:meaning], word_id: @word.id})
+  meaning.save()
+  erb(:word)
+end
