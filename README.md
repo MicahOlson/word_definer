@@ -5,7 +5,7 @@
 * * * 
 
 ## Description
-Geared towards children's education, this application will allow a user to enter a new word they've learned and its definition, see a full list of words and retrieve their definitions, and edit or delete words and definitions.
+A vocabulary builder geared towards children's education, this application will allow a user to enter a new word they've learned and its definition, see a full list of words and retrieve their definitions, and edit or delete words and definitions.
   
 **Play with the application** on Heroku [here](https://frozen-chamber-40405.herokuapp.com/).  
 * * *
